@@ -12,7 +12,6 @@ export class ProductsDashComponent implements OnInit {
 
   constructor(
     private _productService: ProductsService
-
   ) { }
 
   ngOnInit(): void {
