@@ -1,0 +1,14 @@
+
+<div class="card" *ngIf="productObj">
+    <div class="card-body">
+        <p>The procuct is {{productObj.pname}} and its status is {{productObj.pstatus}}</p>
+        <div class="d-flex justify-content-between">
+            <button
+            (click)="redirectToEdit()"
+             mat-raised-button color="primary">Edit</button>
+            <button
+            (click)="onRemove()"
+             mat-raised-button color="warn">Remove</button>
+        </div>
+    </div>
+</div>
