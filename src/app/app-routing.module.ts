@@ -7,6 +7,8 @@ import { ProductDetailComponent } from './shared/comp/products-dash/product-deta
 import { FairsDashComponent } from './shared/comp/fairs-dash/fairs-dash.component';
 import { UsersDashComponent } from './shared/comp/users-dash/users-dash.component';
 import { PageNotFoundComponent } from './shared/comp/page-not-found/page-not-found.component';
+import { UserFormComponent } from './shared/comp/users-dash/user-form/user-form.component';
+import { UserDetailComponent } from './shared/comp/users-dash/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
@@ -20,36 +22,53 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component : ProductsDashComponent
+    component: ProductsDashComponent,
+    children: [
+      {
+        path: 'addProduct',
+        component: ProductFormComponent
+      },
+      {
+        path: ':id',
+        component: ProductDetailComponent
+      },
+      {
+        path: ':id/edit',
+        component: ProductFormComponent
+      },
+    ]
   },
+
   {
-    path : 'products/addProduct',
-    component: ProductFormComponent
-  },
-   {
-    path : 'products/:id',
-    component: ProductDetailComponent
-  },
-   {
-    path : 'products/:id/edit',
-    component: ProductFormComponent
-  },
-    {
-    path : 'fairs',
+    path: 'fairs',
     component: FairsDashComponent
   },
-    {
-    path : 'users',
-    component: UsersDashComponent
+  {
+    path: 'users',
+    component: UsersDashComponent,
+    children: [
+      {
+        path: 'addUser',
+        component: UserFormComponent
+      },
+      {
+        path: ':id',
+        component: UserDetailComponent
+      },
+      {
+        path: ':id/edit',
+        component: UserFormComponent
+      }
+    ]
   },
-  
-    {
-    path : 'Page-Not-Found',
-    component : PageNotFoundComponent
+
+  {
+    path: 'Page-Not-Found',
+    component: PageNotFoundComponent
   },
-   {
-    path : '**',
-    redirectTo : 'Page-Not-Found'
+  {
+    path: '**',
+    redirectTo: 'Page-Not-Found'
   }
 ];
 

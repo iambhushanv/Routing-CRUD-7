@@ -56,6 +56,10 @@ productForm !: FormGroup
     }
   }
 
+   get formControls(){
+    return this.productForm.controls
+  }
+
    patchProductData(){
     this.productId = this._route.snapshot.paramMap.get('id')!
     if(this.productId){

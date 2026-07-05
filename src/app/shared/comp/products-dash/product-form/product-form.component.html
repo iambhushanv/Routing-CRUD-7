@@ -6,6 +6,10 @@
                 <div class="form-group">
                     <label for="pname">Product Name*</label>
                     <input formControlName="pname" type="text" class="form-control">
+                      <strong class="text-danger"
+                    *ngIf="formControls['pname'].touched && formControls['pname'].hasError('required')">
+                    Product Name is required field.
+                </strong>
                 </div>
                 <div class="form-group">
                     <label for="pstatus">Product Status*</label>
